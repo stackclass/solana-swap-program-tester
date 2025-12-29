@@ -12,5 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub mod te1;
 pub mod pf2;
+pub mod te1;
