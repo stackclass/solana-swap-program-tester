@@ -16,17 +16,13 @@ use std::sync::Arc;
 
 use tester::{Case, Definition};
 
-use crate::stages::base::*;
-use crate::stages::extensions::cpi::*;
-use crate::stages::extensions::deployment::*;
-use crate::stages::extensions::error::*;
-use crate::stages::extensions::make_offer::*;
-use crate::stages::extensions::offer::*;
-use crate::stages::extensions::pda::*;
-use crate::stages::extensions::security::*;
-use crate::stages::extensions::take_offer::*;
-use crate::stages::extensions::testing::*;
-use crate::stages::extensions::vault::*;
+use crate::stages::{
+    base::*,
+    extensions::{
+        cpi::*, deployment::*, error::*, make_offer::*, offer::*, pda::*, security::*,
+        take_offer::*, testing::*, vault::*,
+    },
+};
 
 pub fn build() -> Definition {
     Definition {
