@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub mod pda;
-pub mod vault;
-pub mod offer;
-pub mod make_offer;
-pub mod take_offer;
-pub mod security;
 pub mod cpi;
-pub mod error;
-pub mod testing;
 pub mod deployment;
+pub mod error;
+pub mod make_offer;
+pub mod offer;
+pub mod pda;
+pub mod security;
+pub mod take_offer;
+pub mod testing;
+pub mod vault;
