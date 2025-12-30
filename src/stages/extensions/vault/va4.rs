@@ -14,6 +14,6 @@
 
 use tester::{CaseError, Harness};
 
-pub fn test_pda_init(_harness: &Harness) -> Result<(), CaseError> {
+pub fn test_vault_practice(_harness: &Harness) -> Result<(), CaseError> {
     Ok(())
 }

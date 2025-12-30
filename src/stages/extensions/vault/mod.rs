@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
-
-pub fn test_makeoffer_context(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
-}
+pub mod va1;
+pub mod va2;
+pub mod va3;
+pub mod va4;

@@ -12,10 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub mod be1;
-pub mod rs2;
-pub mod sm3;
-pub mod at4;
-pub mod st5;
-pub mod cp6;
-pub mod tt7;
+pub mod cp1;
+pub mod cp2;
+pub mod cp3;
+pub mod cp4;

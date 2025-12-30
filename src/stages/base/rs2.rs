@@ -14,6 +14,6 @@
 
 use tester::{CaseError, Harness};
 
-pub fn test_takeoffer_context(_harness: &Harness) -> Result<(), CaseError> {
+pub fn test_rust_basics(_harness: &Harness) -> Result<(), CaseError> {
     Ok(())
 }

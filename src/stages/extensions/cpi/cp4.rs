@@ -14,6 +14,6 @@
 
 use tester::{CaseError, Harness};
 
-pub fn test_testing_deploy(_harness: &Harness) -> Result<(), CaseError> {
+pub fn test_cpi_practice(_harness: &Harness) -> Result<(), CaseError> {
     Ok(())
 }

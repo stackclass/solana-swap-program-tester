@@ -14,6 +14,6 @@
 
 use tester::{CaseError, Harness};
 
-pub fn test_takeoffer_function(_harness: &Harness) -> Result<(), CaseError> {
+pub fn test_spl_token_basics(_harness: &Harness) -> Result<(), CaseError> {
     Ok(())
 }

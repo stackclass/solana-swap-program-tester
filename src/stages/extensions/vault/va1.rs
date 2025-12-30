@@ -14,6 +14,6 @@
 
 use tester::{CaseError, Harness};
 
-pub fn test_time_expiration(_harness: &Harness) -> Result<(), CaseError> {
+pub fn test_vault_intro(_harness: &Harness) -> Result<(), CaseError> {
     Ok(())
 }

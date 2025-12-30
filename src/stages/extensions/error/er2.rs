@@ -14,6 +14,6 @@
 
 use tester::{CaseError, Harness};
 
-pub fn test_offer(_harness: &Harness) -> Result<(), CaseError> {
+pub fn test_custom_errors(_harness: &Harness) -> Result<(), CaseError> {
     Ok(())
 }

@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-tester = { git = "https://github.com/stackclass/tester.git", tag = "v0.4.0"}
+tester = { git = "https://github.com/stackclass/tester.git", tag = "v0.4.0" }

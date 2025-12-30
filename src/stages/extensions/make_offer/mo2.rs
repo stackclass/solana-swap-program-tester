@@ -14,6 +14,6 @@
 
 use tester::{CaseError, Harness};
 
-pub fn test_partial_fills(_harness: &Harness) -> Result<(), CaseError> {
+pub fn test_deposit_tokens(_harness: &Harness) -> Result<(), CaseError> {
     Ok(())
 }

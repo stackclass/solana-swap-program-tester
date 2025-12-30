@@ -14,6 +14,6 @@
 
 use tester::{CaseError, Harness};
 
-pub fn test_error_codes(_harness: &Harness) -> Result<(), CaseError> {
+pub fn test_withdraw_vault(_harness: &Harness) -> Result<(), CaseError> {
     Ok(())
 }

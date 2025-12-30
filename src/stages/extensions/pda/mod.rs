@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
-
-pub fn test_declare_id(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
-}
+pub mod pa1;
+pub mod pa2;
+pub mod pa3;
+pub mod pa4;

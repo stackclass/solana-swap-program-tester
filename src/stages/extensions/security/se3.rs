@@ -12,5 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub mod pf2;
-pub mod te1;
+use tester::{CaseError, Harness};
+
+pub fn test_account_validation(_harness: &Harness) -> Result<(), CaseError> {
+    Ok(())
+}
