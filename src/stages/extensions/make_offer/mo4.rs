@@ -12,8 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_make_offer_practice(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_make_offer_practice(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_complete_offer =
+        info.instructions.iter().any(|inst| {
+            inst.name.to_lowercase().contains("make") || inst.name.to_lowercase().contains("create")
+        }) && info.structs.iter().any(|s| s.name.to_lowercase().contains("offer"));
+    if has_complete_offer {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Make offer implementation incomplete".to_string())))
+    }
 }

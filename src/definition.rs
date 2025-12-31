@@ -27,7 +27,7 @@ use crate::stages::{
 pub fn build() -> Definition {
     Definition {
         executable_name: "your_program.sh".to_string(),
-        legacy_executable_name: Some("your_program.sh".to_string()),
+        legacy_executable_name: None,
         cases: vec![
             // Base Stages (7 stages)
             Case::new("be1", Arc::new(be1::test_env_setup)),

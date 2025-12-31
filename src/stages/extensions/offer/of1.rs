@@ -12,8 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_offer_data_structure(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_offer_data_structure(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_offer = info.structs.iter().any(|s| s.name.to_lowercase().contains("offer")) ||
+        info.accounts.iter().any(|acc| acc.name.to_lowercase().contains("offer"));
+    if has_offer {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Offer data structure not found".to_string())))
+    }
 }

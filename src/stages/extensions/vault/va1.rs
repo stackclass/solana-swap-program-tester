@@ -12,8 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_vault_intro(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_vault_intro(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_vault = info.structs.iter().any(|s| s.name.to_lowercase().contains("vault")) ||
+        info.accounts.iter().any(|acc| acc.name.to_lowercase().contains("vault"));
+    if has_vault {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Vault code not found".to_string())))
+    }
 }

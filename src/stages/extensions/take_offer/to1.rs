@@ -12,8 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_take_offer_overview(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_take_offer_overview(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_take_offer = info.instructions.iter().any(|inst| {
+        inst.name.to_lowercase().contains("take") ||
+            inst.name.to_lowercase().contains("accept") &&
+                inst.name.to_lowercase().contains("offer")
+    });
+    if has_take_offer {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Take offer function not found".to_string())))
+    }
 }

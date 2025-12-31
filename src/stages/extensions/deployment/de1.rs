@@ -12,8 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_local_testing(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_local_testing(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_program = !info.program_id.is_empty();
+    if has_program {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Program not deployable".to_string())))
+    }
 }

@@ -12,8 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_offer_practice(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_offer_practice(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_offer_fields =
+        info.structs.iter().any(|s| s.name.to_lowercase().contains("offer") && s.fields.len() >= 3);
+    if has_offer_fields {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Offer structure incomplete".to_string())))
+    }
 }

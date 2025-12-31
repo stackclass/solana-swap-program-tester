@@ -12,8 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_security_practice(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_security_practice(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_security = !info.errors.is_empty() &&
+        info.accounts
+            .iter()
+            .any(|acc| acc.fields.iter().any(|f| f.type_name.contains("Signer")));
+    if has_security {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Security measures incomplete".to_string())))
+    }
 }

@@ -12,8 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_account_validation(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_account_validation(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_signer_checks = info
+        .accounts
+        .iter()
+        .any(|acc| acc.fields.iter().any(|f| f.type_name.contains("Signer"))) ||
+        !info.accounts.is_empty();
+    if has_signer_checks {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Account validation not found".to_string())))
+    }
 }

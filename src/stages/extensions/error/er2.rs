@@ -12,8 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use tester::{CaseError, Harness};
+use crate::verifier::get_program_info;
 
-pub fn test_custom_errors(_harness: &Harness) -> Result<(), CaseError> {
-    Ok(())
+pub fn test_custom_errors(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
+    let info = get_program_info()?;
+
+    let has_custom_errors = info.errors.iter().any(|err| err.code != 0);
+    if has_custom_errors {
+        Ok(())
+    } else {
+        Err(Box::new(std::io::Error::other("Custom errors not found".to_string())))
+    }
 }
