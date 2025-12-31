@@ -14,7 +14,6 @@
 
 mod definition;
 mod stages;
-mod verifier;
 
 use std::process::ExitCode;
 

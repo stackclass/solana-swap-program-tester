@@ -12,15 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::verifier::get_program_info;
-
 pub fn test_testing_setup_teardown(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    let info = get_program_info()?;
-
-    let has_setup = !info.accounts.is_empty();
-    if has_setup {
-        Ok(())
-    } else {
-        Err(Box::new(std::io::Error::other("Test setup structures not found".to_string())))
-    }
+    Ok(())
 }

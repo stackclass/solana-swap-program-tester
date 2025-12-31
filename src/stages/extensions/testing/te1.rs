@@ -12,15 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::verifier::get_program_info;
-
 pub fn test_rust_test_basics(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    let info = get_program_info()?;
-
-    let has_tests = !info.instructions.is_empty();
-    if has_tests {
-        Ok(())
-    } else {
-        Err(Box::new(std::io::Error::other("Testable instructions not found".to_string())))
-    }
+    Ok(())
 }

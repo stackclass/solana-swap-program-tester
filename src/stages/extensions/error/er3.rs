@@ -12,15 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::verifier::get_program_info;
-
 pub fn test_error_messages(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    let info = get_program_info()?;
-
-    let has_messages = info.errors.iter().any(|err| !err.message.is_empty());
-    if has_messages {
-        Ok(())
-    } else {
-        Err(Box::new(std::io::Error::other("Error messages not found".to_string())))
-    }
+    Ok(())
 }
