@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_pda_practice(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_pda_checks()
 }

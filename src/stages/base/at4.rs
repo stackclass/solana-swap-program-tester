@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_anchor_try(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_anchor_try_check()
 }

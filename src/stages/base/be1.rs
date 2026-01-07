@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_env_setup(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_env_setup_check()
 }

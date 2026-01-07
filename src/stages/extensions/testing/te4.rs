@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_comprehensive_tests(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_testing_checks()
 }

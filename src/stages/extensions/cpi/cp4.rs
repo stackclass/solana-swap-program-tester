@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_cpi_practice(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_cpi_checks()
 }
