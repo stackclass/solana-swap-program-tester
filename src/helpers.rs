@@ -51,6 +51,7 @@ pub fn get_repo_dir() -> Result<std::path::PathBuf, ProgramLoadError> {
 /// # Returns
 ///
 /// * `String` - A formatted error message
+#[allow(dead_code)]
 pub fn format_test_error(stage_name: &str, error: &TestContextError) -> String {
     format!("Test '{}' failed: {}", stage_name, error)
 }
@@ -64,6 +65,7 @@ pub fn format_test_error(stage_name: &str, error: &TestContextError) -> String {
 /// # Returns
 ///
 /// * `String` - A formatted success message
+#[allow(dead_code)]
 pub fn format_test_success(stage_name: &str) -> String {
     format!("Test '{}' passed successfully", stage_name)
 }
@@ -77,6 +79,7 @@ pub fn format_test_success(stage_name: &str) -> String {
 /// # Returns
 ///
 /// * `Account` - A system account
+#[allow(dead_code)]
 pub fn create_system_account(lamports: u64) -> Account {
     Account { lamports, owner: solana_system_program::id(), ..Default::default() }
 }
@@ -91,6 +94,7 @@ pub fn create_system_account(lamports: u64) -> Account {
 /// # Returns
 ///
 /// * `(Pubkey, u8)` - The PDA public key and bump seed
+#[allow(dead_code)]
 pub fn create_pda(seeds: &[&[u8]], program_id: &Pubkey) -> (Pubkey, u8) {
     Pubkey::find_program_address(seeds, program_id)
 }
@@ -100,6 +104,7 @@ pub fn create_pda(seeds: &[&[u8]], program_id: &Pubkey) -> (Pubkey, u8) {
 /// # Returns
 ///
 /// * `Check` - A success check
+#[allow(dead_code)]
 pub fn success_check() -> Check<'static> {
     Check::success()
 }
@@ -114,6 +119,7 @@ pub fn success_check() -> Check<'static> {
 /// # Returns
 ///
 /// * `Check` - A lamports check
+#[allow(dead_code)]
 pub fn lamports_check(pubkey: &Pubkey, expected_lamports: u64) -> Check<'_> {
     Check::account(pubkey).lamports(expected_lamports).build()
 }
@@ -128,6 +134,7 @@ pub fn lamports_check(pubkey: &Pubkey, expected_lamports: u64) -> Check<'_> {
 /// # Returns
 ///
 /// * `Check` - A data check
+#[allow(dead_code)]
 pub fn data_check<'a>(pubkey: &'a Pubkey, expected_data: &'a [u8]) -> Check<'a> {
     Check::account(pubkey).data(expected_data).build()
 }
@@ -142,6 +149,7 @@ pub fn data_check<'a>(pubkey: &'a Pubkey, expected_data: &'a [u8]) -> Check<'a> 
 /// # Returns
 ///
 /// * `Check` - An owner check
+#[allow(dead_code)]
 pub fn owner_check<'a>(pubkey: &'a Pubkey, expected_owner: &'a Pubkey) -> Check<'a> {
     Check::account(pubkey).owner(expected_owner).build()
 }
@@ -156,6 +164,7 @@ pub fn owner_check<'a>(pubkey: &'a Pubkey, expected_owner: &'a Pubkey) -> Check<
 /// # Returns
 ///
 /// * `Check` - An executable check
+#[allow(dead_code)]
 pub fn executable_check(pubkey: &Pubkey, expected_executable: bool) -> Check<'_> {
     Check::account(pubkey).executable(expected_executable).build()
 }
@@ -272,6 +281,7 @@ pub struct SwapFixture {
     pub associated_token_program: Pubkey,
     pub offered_amount: u64,
     pub wanted_amount: u64,
+    #[allow(dead_code)]
     pub decimals_a: u8,
 }
 

@@ -156,6 +156,7 @@ impl SwapTestContext {
     ///
     /// * `Ok(())` - If the instruction executed and all checks passed
     /// * `Err(TestContextError)` - If execution or validation failed
+    #[allow(dead_code)]
     pub fn execute_and_validate(
         &mut self,
         instruction: &Instruction,
@@ -218,6 +219,7 @@ impl SwapTestContext {
     /// # Returns
     ///
     /// * `Pubkey` - The public key of the new token account
+    #[allow(dead_code)]
     pub fn create_token_account(&mut self, owner: Pubkey, mint: Pubkey, amount: u64) -> Pubkey {
         let pubkey = Pubkey::new_unique();
         let mut data = vec![0; 82]; // Token account size

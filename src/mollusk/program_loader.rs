@@ -31,6 +31,7 @@ pub enum ProgramLoadError {
     ProgramDirNotFound(PathBuf),
     ProgramNotFound,
     IoError(std::io::Error),
+    #[allow(dead_code)]
     ElfLoadError(String),
 }
 
@@ -239,6 +240,7 @@ fn find_so_file_recursive(dir: &Path) -> Option<PathBuf> {
 ///
 /// * `Ok(Vec<u8>)` - The program ELF bytes
 /// * `Err(ProgramLoadError)` - If the file cannot be read
+#[allow(dead_code)]
 pub fn load_program_elf(path: &Path) -> Result<Vec<u8>, ProgramLoadError> {
     let elf = file::load_program_elf(path.to_str().unwrap());
     Ok(elf)
