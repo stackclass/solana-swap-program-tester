@@ -150,7 +150,7 @@ pub fn load_swap_program_id(repo_dir: &Path) -> Result<Pubkey, ProgramLoadError>
 
     let content = std::fs::read_to_string(&anchor_path)?;
     let program_id =
-        find_program_id(&content, "swap").ok_or(ProgramLoadError::ProgramIdNotFound)?;
+        find_program_id(&content, "swap-program").ok_or(ProgramLoadError::ProgramIdNotFound)?;
 
     Pubkey::from_str(&program_id).map_err(|_| ProgramLoadError::InvalidProgramId(program_id))
 }
