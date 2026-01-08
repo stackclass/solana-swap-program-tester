@@ -100,19 +100,19 @@ pub fn load_swap_program(repo_dir: &Path) -> Result<PathBuf, ProgramLoadError> {
     }
 
     // Try standard Anchor deployment path
-    let deploy_path = repo_dir.join("target/deploy/swap.so");
+    let deploy_path = repo_dir.join("target/deploy/swap_program.so");
     if deploy_path.exists() {
         return Ok(deploy_path);
     }
 
     // Try SBF release path
-    let sbf_path = repo_dir.join("target/sbf-solana-solana/release/swap.so");
+    let sbf_path = repo_dir.join("target/sbf-solana-solana/release/swap_program.so");
     if sbf_path.exists() {
         return Ok(sbf_path);
     }
 
     // Try artifacts directory
-    let artifacts_path = repo_dir.join("artifacts/swap.so");
+    let artifacts_path = repo_dir.join("artifacts/swap_program.so");
     if artifacts_path.exists() {
         return Ok(artifacts_path);
     }
