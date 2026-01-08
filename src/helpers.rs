@@ -698,11 +698,11 @@ pub fn run_offer_checks() -> Result<(), tester::CaseError> {
     let offer_account = fixture.get_account(&fixture.offer)?;
     let offer = offer_data_from_account(&offer_account).map_err(to_case_error_from_context)?;
 
-    if offer.id != fixture.offer_id
-        || offer.maker != fixture.maker
-        || offer.token_mint_a != fixture.token_mint_a
-        || offer.token_mint_b != fixture.token_mint_b
-        || offer.token_b_wanted_amount != fixture.wanted_amount
+    if offer.id != fixture.offer_id ||
+        offer.maker != fixture.maker ||
+        offer.token_mint_a != fixture.token_mint_a ||
+        offer.token_mint_b != fixture.token_mint_b ||
+        offer.token_b_wanted_amount != fixture.wanted_amount
     {
         return Err(Box::new(std::io::Error::new(
             std::io::ErrorKind::InvalidData,
