@@ -14,7 +14,9 @@
 
 //! Helper functions for testing the swap program.
 
-use crate::mollusk::{ProgramLoadError, TestContextError, init_test_context, load_swap_program_id};
+use crate::mollusk::{
+    ProgramLoadError, TestContextError, init_test_context, load_swap_program, load_swap_program_id,
+};
 use mollusk_svm::{program::keyed_account_for_system_program, result::Check};
 use mollusk_svm_programs_token::{associated_token, token};
 use sha2::{Digest, Sha256};
@@ -221,8 +223,6 @@ pub fn to_case_error_from_context(error: TestContextError) -> tester::CaseError 
 /// * `Ok(())` - If the program is available
 /// * `Err(tester::CaseError)` - If the program is not available
 pub fn check_program_available(repo_dir: &Path) -> Result<(), tester::CaseError> {
-    use crate::mollusk::load_swap_program;
-
     match load_swap_program(repo_dir) {
         Ok(_) => Ok(()),
         Err(e) => Err(Box::new(e) as Box<dyn std::error::Error + Send + Sync>),
@@ -698,11 +698,11 @@ pub fn run_offer_checks() -> Result<(), tester::CaseError> {
     let offer_account = fixture.get_account(&fixture.offer)?;
     let offer = offer_data_from_account(&offer_account).map_err(to_case_error_from_context)?;
 
-    if offer.id != fixture.offer_id ||
-        offer.maker != fixture.maker ||
-        offer.token_mint_a != fixture.token_mint_a ||
-        offer.token_mint_b != fixture.token_mint_b ||
-        offer.token_b_wanted_amount != fixture.wanted_amount
+    if offer.id != fixture.offer_id
+        || offer.maker != fixture.maker
+        || offer.token_mint_a != fixture.token_mint_a
+        || offer.token_mint_b != fixture.token_mint_b
+        || offer.token_b_wanted_amount != fixture.wanted_amount
     {
         return Err(Box::new(std::io::Error::new(
             std::io::ErrorKind::InvalidData,
