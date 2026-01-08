@@ -13,6 +13,8 @@
 // limitations under the License.
 
 mod definition;
+mod helpers;
+mod mollusk;
 mod stages;
 
 use std::process::ExitCode;

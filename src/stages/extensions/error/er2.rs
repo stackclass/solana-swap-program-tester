@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_custom_errors(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_error_checks()
 }

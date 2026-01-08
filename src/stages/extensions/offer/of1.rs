@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_offer_data_structure(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_offer_checks()
 }

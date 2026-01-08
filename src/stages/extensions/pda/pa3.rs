@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_pda_bump_seeds(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_pda_checks()
 }

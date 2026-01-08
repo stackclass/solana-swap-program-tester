@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_withdraw_vault(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_take_offer_checks()
 }

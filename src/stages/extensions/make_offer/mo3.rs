@@ -13,5 +13,5 @@
 // limitations under the License.
 
 pub fn test_save_offer(_harness: &tester::Harness) -> Result<(), tester::CaseError> {
-    Ok(())
+    crate::helpers::run_make_offer_checks()
 }
