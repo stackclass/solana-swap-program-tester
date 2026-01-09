@@ -40,4 +40,4 @@ all:
 
 # Run the main program
 run:
-    cargo run --bin solana-voting-program-tester
+    cargo run --bin solana-swap-program-tester
