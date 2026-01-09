@@ -27,7 +27,7 @@ RUN cargo chef cook --release --recipe-path recipe.json
 # all layers should be cached.
 
 COPY . .
-RUN cargo build --release --bin solana-voting-program-tester
+RUN cargo build --release --bin solana-swap-program-tester
 
 ################################################################################
 # Create a final stage for running your application.
@@ -46,7 +46,7 @@ RUN adduser --system --uid 1001 app
 USER app
 
 # Copy the executable from the "building" stage.
-COPY --from=builder /app/target/release/solana-voting-program-tester /app/
+COPY --from=builder /app/target/release/solana-swap-program-tester /app/
 
 # What the container should run when it is started
-ENTRYPOINT ["/app/solana-voting-program-tester"]
+ENTRYPOINT ["/app/solana-swap-program-tester"]
